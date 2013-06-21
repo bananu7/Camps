@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h2>Dodaj kampę</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {% include "form_snippet.html" with form=form %}
+    <button type="submit" value="OK">OK</button>
+</form>
+
+{% endblock %}

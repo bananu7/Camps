@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+
+{% block head %}
+<style>
+    table { border-collapse: collapse; }
+    td { border: 1px solid black; }
+    td { background-color: #EAF2D3; }
+</style>
+<script src="table.js"></script>
+{% endblock %}
+
+{% block content %}
+{% if camps %}
+<table class="example altstripe sort01 table-autostripe table-autosort:2 table-stripeclass:alternate2">
+    <thead>
+        <td>Nazwa</td>
+        <td>Ilosc pokoi</td>
+        <td>Cena</td>
+    </thead>
+    {% for camp in camps %}
+    <tr>
+        <td><a href="/camps/{{ camp.pk }}">{{ camp.name }}</a></td>
+        <td>{{ camp.rooms_count }}</td>
+        <td>{{ camp.price }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>No camps! :(</p>
+{% endif %}
+{% endblock %}
+
